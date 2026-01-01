@@ -7,8 +7,8 @@ pipeline {
         echo 'Running a compliance scan with inspec....'
           script{
             def remote = [:]
-            remote.name = "controlnode"
-            remote.host = "xxx.xxx.xxx.xxx"
+            remote.name = "k8s-master"
+            remote.host = "192.168.192.160"
             remote.allowAnyHosts = true
 
             withCredentials([sshUserPrivateKey(credentialsId: 'sshUser', keyFileVariable: 'identity', passphraseVariable: '', usernameVariable: 'userName')]) {
